@@ -28,7 +28,6 @@ import com.example.testaplication.R;
 import com.example.testaplication.Sqlite.CategoryDataScoure;
 
 import java.util.List;
-
 public class ManagementCategoryFragment extends Fragment {
     private List<Category> categoryList;
     private CategoryDataScoure categoryDataScoure;

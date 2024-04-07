@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.example.testaplication.R;
 
 import java.util.List;
-
 public class DisplayVoteAdapter extends BaseAdapter {
     private Context context;
     private int layout;

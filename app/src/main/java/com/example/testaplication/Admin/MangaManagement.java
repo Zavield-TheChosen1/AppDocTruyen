@@ -21,7 +21,6 @@ import com.example.testaplication.Sqlite.MangaSQLiteHelper;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class MangaManagement extends AppCompatActivity {
     private MangaSQLiteHelper db = new MangaSQLiteHelper(MangaManagement.this);
     private List<MangaInformation> list;

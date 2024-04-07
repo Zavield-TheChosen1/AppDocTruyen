@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.testaplication.R;
 import com.example.testaplication.Sqlite.LoginSQLiteHelper;
-
 public class AccDetails extends AppCompatActivity {
     private TextView usernameTv,TvPass;
     private String id;

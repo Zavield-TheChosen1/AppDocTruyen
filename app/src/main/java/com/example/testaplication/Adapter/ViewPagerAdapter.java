@@ -7,7 +7,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.testaplication.Display.FragmentList;
 import com.example.testaplication.Display.HomeFragment;
-
 public class ViewPagerAdapter extends FragmentStateAdapter {
     private Fragment fragment;
 

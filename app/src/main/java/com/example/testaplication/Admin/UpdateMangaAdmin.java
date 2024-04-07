@@ -18,7 +18,6 @@ import com.example.testaplication.Sqlite.MangaSQLiteHelper;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class UpdateMangaAdmin extends AppCompatActivity {
 
     @Override

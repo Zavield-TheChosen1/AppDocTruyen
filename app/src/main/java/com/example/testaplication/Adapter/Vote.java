@@ -1,5 +1,4 @@
 package com.example.testaplication.Adapter;
-
 public class Vote {
     private  int resource;
     private String name;

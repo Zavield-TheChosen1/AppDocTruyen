@@ -1,5 +1,4 @@
 package com.example.testaplication.Adapter;
-
 public class MangaInformation {
     private int source;
     private String nameAuthors;

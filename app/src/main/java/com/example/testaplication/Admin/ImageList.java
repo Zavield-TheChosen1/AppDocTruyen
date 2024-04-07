@@ -1,5 +1,4 @@
 package com.example.testaplication.Admin;
-
 public class ImageList {
     private int id;
 

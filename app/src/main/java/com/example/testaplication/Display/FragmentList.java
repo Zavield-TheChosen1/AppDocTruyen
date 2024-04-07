@@ -32,7 +32,6 @@ import com.example.testaplication.Sqlite.MyDatabaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class FragmentList extends Fragment {
     private List<MangaInformation> list = new ArrayList<>();
     private ListView listViewItem;

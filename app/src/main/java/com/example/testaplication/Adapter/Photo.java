@@ -1,5 +1,4 @@
 package com.example.testaplication.Adapter;
-
 public class Photo {
     private int resourceId;
 

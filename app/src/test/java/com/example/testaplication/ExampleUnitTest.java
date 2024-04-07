@@ -1,5 +1,4 @@
 package com.example.testaplication;
-
 import org.junit.Test;
 
 import static org.junit.Assert.*;

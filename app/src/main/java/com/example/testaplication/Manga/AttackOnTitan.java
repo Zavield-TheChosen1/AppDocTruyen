@@ -16,7 +16,6 @@ import com.example.testaplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class AttackOnTitan extends AppCompatActivity {
 
     @Override

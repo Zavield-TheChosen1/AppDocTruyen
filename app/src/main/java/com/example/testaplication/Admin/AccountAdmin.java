@@ -1,6 +1,5 @@
 package com.example.testaplication.Admin;
 
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

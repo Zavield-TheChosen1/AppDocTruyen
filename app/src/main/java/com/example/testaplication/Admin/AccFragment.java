@@ -1,6 +1,5 @@
 package com.example.testaplication.Admin;
 
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;

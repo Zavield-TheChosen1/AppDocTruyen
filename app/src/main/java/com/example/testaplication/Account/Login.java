@@ -1,5 +1,4 @@
 package com.example.testaplication.Account;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -28,7 +27,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
 public class Login extends AppCompatActivity {
     private static final int RESQUET_CODE = 1;
     private LoginDataScoure loginDataScoure;

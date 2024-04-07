@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.testaplication.R;
-
 public class DefaultFragment extends Fragment {
     @Nullable
     @Override

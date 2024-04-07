@@ -1,7 +1,6 @@
 package com.example.testaplication.API;
 
 import java.util.List;
-
 public class ApiAttackOnTitan {
     private List<String> chapter1;
     private List<String> chapter2;

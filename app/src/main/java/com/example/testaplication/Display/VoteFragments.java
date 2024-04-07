@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
 public class VoteFragments extends Fragment {
     private View view;
     private List<Vote> list = new ArrayList<>();

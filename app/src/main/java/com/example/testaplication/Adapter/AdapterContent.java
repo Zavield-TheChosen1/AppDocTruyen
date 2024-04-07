@@ -1,5 +1,4 @@
 package com.example.testaplication.Adapter;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,6 @@ import com.example.testaplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class AdapterContent extends BaseAdapter {
     Context context;
     List<Review> list;

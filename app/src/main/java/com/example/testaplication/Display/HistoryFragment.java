@@ -23,7 +23,6 @@ import com.example.testaplication.Sqlite.MyDatabaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class HistoryFragment extends Fragment {
     private View view;
     private ListView list_view_history;

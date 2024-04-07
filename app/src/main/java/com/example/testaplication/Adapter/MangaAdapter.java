@@ -12,7 +12,6 @@ import com.example.testaplication.Manga.Manga;
 import com.example.testaplication.R;
 
 import java.util.List;
-
 public class MangaAdapter extends BaseAdapter {
     private Context context;
     private int layout;

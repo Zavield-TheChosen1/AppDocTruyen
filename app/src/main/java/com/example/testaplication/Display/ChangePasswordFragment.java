@@ -32,7 +32,6 @@ import com.example.testaplication.Sqlite.LoginDataScoure;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class ChangePasswordFragment extends Fragment {
     private SharedPreferences sharedPreferences;
     private LoginDataScoure loginDataScoure;

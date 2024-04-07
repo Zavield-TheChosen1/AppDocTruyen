@@ -12,7 +12,6 @@ import com.example.testaplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class AdapterStoreImage extends BaseAdapter {
     private Context context;
     private int layout;

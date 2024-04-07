@@ -1,5 +1,4 @@
 package com.example.testaplication.Adapter;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 import com.example.testaplication.R;
 
 import java.util.List;
-
 public class AdapterFavoriteView extends BaseAdapter {
     private int layout;
     private List<ListFavoriteConstructor> list;

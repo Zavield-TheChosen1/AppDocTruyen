@@ -11,7 +11,6 @@ import com.example.testaplication.Manga.Category;
 import com.example.testaplication.R;
 
 import java.util.List;
-
 public class CategoryApdater extends BaseAdapter {
     private Context context;
     private int layout;

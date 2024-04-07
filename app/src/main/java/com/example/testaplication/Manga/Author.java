@@ -1,5 +1,4 @@
 package com.example.testaplication.Manga;
-
 public class Author {
     private int id;
 

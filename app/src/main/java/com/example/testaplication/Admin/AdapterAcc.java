@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.testaplication.R;
 
 import java.util.ArrayList;
-
 public class AdapterAcc extends RecyclerView.Adapter<AdapterAcc.AccHViewHolder>  {
     private Context context;
     private ArrayList<MyAccount> accList;

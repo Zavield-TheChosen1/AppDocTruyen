@@ -1,5 +1,4 @@
 package com.example.testaplication.Adapter;
-
 public class ListFavoriteConstructor {
     private String image;
     private String name;

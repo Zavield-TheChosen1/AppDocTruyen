@@ -15,7 +15,6 @@ import com.example.testaplication.Admin.AccFragment;
 import com.example.testaplication.Admin.ManagementAddManga;
 import com.example.testaplication.Admin.MangaManagement;
 import com.example.testaplication.R;
-
 public class AdminFragments extends Fragment {
     private View view;
     private Button managementManga;

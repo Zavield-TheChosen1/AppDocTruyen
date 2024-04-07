@@ -1,5 +1,4 @@
 package com.example.testaplication.Adapter;
-
 public class DisplayVote {
     private String username;
     private String points;

@@ -30,7 +30,6 @@ import com.example.testaplication.Sqlite.CategoryDataScoure;
 import com.example.testaplication.Sqlite.CategorySQLiteHelper;
 
 import java.util.List;
-
 public class CategoryFragment extends Fragment {
     private View view;
     private ListView listView;

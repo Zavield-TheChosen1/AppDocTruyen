@@ -39,7 +39,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
-
 public class HomeFragment extends Fragment {
     @Nullable
     @Override

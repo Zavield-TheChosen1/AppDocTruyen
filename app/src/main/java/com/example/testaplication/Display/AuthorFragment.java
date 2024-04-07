@@ -32,7 +32,6 @@ import com.example.testaplication.Sqlite.AuthorDataScoure;
 import com.example.testaplication.Sqlite.CategoryDataScoure;
 
 import java.util.List;
-
 public class AuthorFragment extends Fragment {
     private View view;
 

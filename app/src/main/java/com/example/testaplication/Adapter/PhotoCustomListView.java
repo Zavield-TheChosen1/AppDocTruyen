@@ -14,7 +14,6 @@ import com.example.testaplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class PhotoCustomListView extends BaseAdapter implements Filterable {
     Context context;
     int layout;

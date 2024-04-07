@@ -1,5 +1,4 @@
 package com.example.testaplication.Manga;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;

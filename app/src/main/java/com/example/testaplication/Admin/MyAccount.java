@@ -1,5 +1,4 @@
 package com.example.testaplication.Admin;
-
 public class MyAccount {
     private String username;
     private String password;

@@ -12,7 +12,6 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.PhotoViewHolder>  {
     private List<Image> list;
 

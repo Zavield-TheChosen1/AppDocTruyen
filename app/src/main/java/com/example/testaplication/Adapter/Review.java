@@ -1,5 +1,4 @@
 package com.example.testaplication.Adapter;
-
 public class Review {
     private String username;
     private String name_manga;

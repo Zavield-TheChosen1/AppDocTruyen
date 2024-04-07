@@ -28,7 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 public class SignUp extends AppCompatActivity {
     private static final int RESQUET_CODE = 1;
     private CheckBox checkBox;

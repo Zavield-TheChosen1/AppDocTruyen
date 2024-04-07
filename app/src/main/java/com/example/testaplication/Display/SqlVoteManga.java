@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 public class SqlVoteManga extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "vote3.db";
     private static final int DATABASE_VERSION = 1;

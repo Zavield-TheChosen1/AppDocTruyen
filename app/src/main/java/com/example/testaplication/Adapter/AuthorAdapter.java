@@ -13,7 +13,6 @@ import com.example.testaplication.Manga.Category;
 import com.example.testaplication.R;
 
 import java.util.List;
-
 public class AuthorAdapter extends BaseAdapter {
     private Context context;
     private int layout;

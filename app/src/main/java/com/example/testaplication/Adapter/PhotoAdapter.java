@@ -13,7 +13,6 @@ import com.example.testaplication.Display.HomeFragment;
 import com.example.testaplication.R;
 
 import java.util.List;
-
 public class PhotoAdapter extends PagerAdapter {
     private Context mContext;
     private List<Photo> listPhoto;

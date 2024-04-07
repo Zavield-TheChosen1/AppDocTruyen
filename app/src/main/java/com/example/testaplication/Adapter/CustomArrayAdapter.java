@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
-
 public class CustomArrayAdapter extends ArrayAdapter<String> {
 
     private List<String> chapters;
