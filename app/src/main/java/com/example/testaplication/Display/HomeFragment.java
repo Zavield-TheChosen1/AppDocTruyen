@@ -25,7 +25,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.testaplication.Adapter.AdapterCustom;
 import com.example.testaplication.Adapter.PhotoAdapter;
-import com.example.testaplication.Adapter.AdapterManga;
+import com.example.testaplication.Adapter.MangaInformation;
 import com.example.testaplication.Manga.AttackOnTitan;
 import com.example.testaplication.Manga.BlackClover;
 import com.example.testaplication.Adapter.Photo;
@@ -57,19 +57,17 @@ public class HomeFragment extends Fragment {
         String user_name = sharedPreferences.getString("email", "");
         auto_slide();
         sqLiteHelper = new MangaSQLiteHelper(getActivity());
-        sqLiteHelper.insert_Value(R.drawable.blcv,"Black CLover","Trinh Thám");
-        sqLiteHelper.insert_Value(R.drawable.frbk,"Fruit Backest","Học Dường");
-        sqLiteHelper.insert_Value(R.drawable.spx,"Spy x Family","Tình Yêu");
-        sqLiteHelper.insert_Value(R.drawable.aot2,"Attack On Titan","Lãng Mạng");
-        sqLiteHelper.insert_Value(R.drawable.naruto,"Naruto ","Chuyển Sinh");
-        sqLiteHelper.insert_Value(R.drawable.onepice,"One Piece","Trùng Sinh");
-        listCustomData = sqLiteHelper.get_data();
-//        listCustom.add(new AdapterManga(R.drawable.blcv,"Black CLover","Isayama Hajime"));
-//        listCustom.add(new AdapterManga(R.drawable.frbk,"Fruit Backest"," Natsuki Takaya"));
-//        listCustom.add(new AdapterManga(R.drawable.spx,"Spy x Family","Anya Forger"));
-//        listCustom.add(new AdapterManga(R.drawable.aot2,"Attack On Titan","Tabata Suichi"));
-//        listCustom.add(new AdapterManga(R.drawable.naruto,"Naruto ","Nastuoki Ore"));
-//        listCustom.add(new AdapterManga(R.drawable.onepice,"One Piece","Muichiro Oda"));
+        if(listCustomData != null){
+            sqLiteHelper.insert_Value(R.drawable.blcv,"Black Clover","Phiêu lưu, Hành Động");
+            sqLiteHelper.insert_Value(R.drawable.aot,"Attack On Titan","Siêu nhiên, Hành động");
+            sqLiteHelper.insert_Value(R.drawable.ssnofr,"SouSou No Frieren","Phiêu lưu, Tình cảm, Đời thường");
+            sqLiteHelper.insert_Value(R.drawable.jjsksen,"Jujutsu Kaisen","Siêu nhiên, Hành động");
+            sqLiteHelper.insert_Value(R.drawable.spx,"Spy x Family","Lãng mạn, Phiêu lưu, Hài hước");
+            sqLiteHelper.insert_Value(R.drawable.vchtkvg,"Vừa chơi Đã Có Tài Khoản Vương Giả","Fantasy, Chuyển sinh");
+            sqLiteHelper.insert_Value(R.drawable.iamatomic,"Tao Muốn Trở Thành Chúa Tể Bóng Đêm","Hành động, Harem");
+            sqLiteHelper.insert_Value(R.drawable.cthloi,"Cột Thu Lôi","Teacher, Old Man");
+            listCustomData = sqLiteHelper.get_data();
+        }
         AdapterCustom adapter = new AdapterCustom(getActivity(),R.layout.custom_list_view,listCustomData);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -79,7 +77,7 @@ public class HomeFragment extends Fragment {
                     String name = listCustomData.get(i).getNameAuthors();
                     String des = listCustomData.get(i).getDescription();
                     int image = listCustomData.get(i).getSource();
-                    if (!db.exists2(R.drawable.blcv,user_name)) {
+                    if (!db.exists2(name,user_name)) {
                         db.insertData2(String.valueOf(image), name, des,user_name);
                     }
                     Intent intent = new Intent(getActivity(), BlackClover.class);
@@ -89,15 +87,17 @@ public class HomeFragment extends Fragment {
                     String name = listCustomData.get(i).getNameAuthors();
                     String des = listCustomData.get(i).getDescription();
                     int image = listCustomData.get(i).getSource();
-                    if (!db.exists2(R.drawable.frbk,user_name)) {
+                    if (!db.exists2(name,user_name)) {
                         db.insertData2(String.valueOf(image), name, des,user_name);
                     }
+                    Intent intent = new Intent(getActivity(), AttackOnTitan.class);
+                    startActivity(intent);
                 }
                 if(i==2){
                     String name = listCustomData.get(i).getNameAuthors();
                     String des = listCustomData.get(i).getDescription();
                     int image = listCustomData.get(i).getSource();
-                    if (!db.exists2(R.drawable.spx,user_name)) {
+                    if (!db.exists2(name,user_name)) {
                         db.insertData2(String.valueOf(image), name, des,user_name);
                     }
                 }
@@ -105,95 +105,93 @@ public class HomeFragment extends Fragment {
                     String name = listCustomData.get(i).getNameAuthors();
                     String des = listCustomData.get(i).getDescription();
                     int image = listCustomData.get(i).getSource();
-                    if (!db.exists2(R.drawable.aot2,user_name)) {
-                        db.insertData2(String.valueOf(image), name, des,user_name);
-                    }
-                    Intent intent = new Intent(getActivity(), AttackOnTitan.class);
-                    startActivity(intent);
-                }
-                if(i==4){
-                    String name = listCustomData.get(i).getNameAuthors();
-                    String des = listCustomData.get(i).getDescription();
-                    int image = listCustomData.get(i).getSource();
-                    if (!db.exists2(R.drawable.naruto,user_name)) {
+                    if (!db.exists2(name,user_name)) {
                         db.insertData2(String.valueOf(image), name, des,user_name);
                     }
                 }
-                if(i==5){
-                    String name = listCustomData.get(i).getNameAuthors();
-                    String des = listCustomData.get(i).getDescription();
-                    int image = listCustomData.get(i).getSource();
-                    if (!db.exists2(R.drawable.onepice,user_name)) {
-                        db.insertData2(String.valueOf(image), name, des,user_name);
-                    }
-                }
+//                if(i==4){
+//                    String name = listCustomData.get(i).getNameAuthors();
+//                    String des = listCustomData.get(i).getDescription();
+//                    int image = listCustomData.get(i).getSource();
+//                    if (!db.exists2(name,user_name)) {
+//                        db.insertData2(String.valueOf(image), name, des,user_name);
+//                    }
+//                }
+//                if(i==5){
+//                    String name = listCustomData.get(i).getNameAuthors();
+//                    String des = listCustomData.get(i).getDescription();
+//                    int image = listCustomData.get(i).getSource();
+//                    if (!db.exists2(name,user_name)) {
+//                        db.insertData2(String.valueOf(image), name, des,user_name);
+//                    }
+//                }
             }
         });
-        anya = view.findViewById(R.id.anya);
-        naruto = view.findViewById(R.id.naruto);
-        levi = view.findViewById(R.id.levi);
-        tanjiro = view.findViewById(R.id.Tanjiro);
-        asta = view.findViewById(R.id.asta);
-        eren = view.findViewById(R.id.eren);
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        anya.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                builder.setTitle("Thông Tin Về Nhân Vật Anya");
-                builder.setMessage("Một cô bé có thể đọc được suy nghĩ của người khác, Anya là người duy nhất biết được tình hình chung của gia đình mình. Tuổi thật sự của cô bé tầm khoảng 4 hoặc 5 tuổi, nhưng lại nói là 6 tuổi vì trường chỉ nhận trẻ 6 tuổi trở lên. Ban đầu, cô bé là một đối tượng thử nghiệm trên người được đặt tên là \"Vật thí nghiệm 007\" (被検体007?), cô đã trốn đi bởi vì ở đó cô phải học mà không được chơi. Sau đó tự đặt tên là \"Anya.\" ");
-                builder.show();
-            }
-        });
-        naruto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                builder.setTitle("Thông Tin Về Nhân Vật Naruto");
-                builder.setMessage("Uzumaki Naruto là nhân vật hư cấu trong bộ manga và anime Naruto của tác giả người Nhật Masashi Kishimoto. Anh là một ninja trẻ tuổi từ làng Lá — một ngôi làng giả tưởng và đóng vai trò là nhân vật chính trong bộ truyện cùng tên");
-                builder.show();
-            }
-        });
-        asta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                builder.setTitle("Thông Tin Về Nhân Vật Asta");
-                builder.setMessage("Được dịch từ tiếng Anh-Asta là một nhân vật hư cấu và là nhân vật chính của loạt manga Black Clover do Yūki Tabata tạo ra. Là một nông dân mồ côi bị bỏ lại tại một nhà thờ, anh khao khát trở thành Vua pháp sư tiếp theo.");
-                builder.show();
-            }
-        });
-        tanjiro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                builder.setTitle("Thông Tin Về Nhân Vật Tanjiro");
-                builder.setMessage("Kamado Tanjirō là một nhân vật hư cấu và là nhân vật chính trong loạt manga Thanh gươm diệt quỷ của tác giả Gotōge Koyoharu. Tanjirō trở thành kiếm sĩ để đưa em gái hóa quỷ của mình là Nezuko trở lại thành người và trả thù cho những người thân bị quỷ tàn sát");
-                builder.show();
-            }
-        });
-        levi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                builder.setTitle("Thông Tin Về Nhân Vật Levi");
-                builder.setMessage("Được dịch từ tiếng Anh-Levi Ackerman là một nhân vật hư cấu trong bộ truyện tranh Attack on Titan của Hajime Isayama. Levi là một người lính làm việc cho Đội Hoạt động Đặc biệt của Quân đoàn Khảo sát, còn được gọi là Biệt đội Levi, một đội gồm bốn người lính tinh nhuệ với thành tích chiến đấu ấn tượng do chính tay anh tuyển chọn.");
-                builder.show();
-            }
-        });
-        eren.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                builder.setTitle("Thông Tin Về Nhân Vật Eren");
-                builder.setMessage("Eren Yeager, hay Eren Jaeger trong bản phụ đề và lồng tiếng của anime Đại chiến Titan, là một nhân vật hư cấu và là nhân vật chính trong loạt manga Đại chiến Titan của tác giả Isayama Hajime");
-                builder.show();
-            }
-        });
+//        anya = view.findViewById(R.id.anya);
+//        naruto = view.findViewById(R.id.naruto);
+//        levi = view.findViewById(R.id.levi);
+//        tanjiro = view.findViewById(R.id.Tanjiro);
+//        asta = view.findViewById(R.id.asta);
+//        eren = view.findViewById(R.id.eren);
+//        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//        anya.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                builder.setTitle("Thông Tin Về Nhân Vật Anya");
+//                builder.setMessage("Một cô bé có thể đọc được suy nghĩ của người khác, Anya là người duy nhất biết được tình hình chung của gia đình mình. Tuổi thật sự của cô bé tầm khoảng 4 hoặc 5 tuổi, nhưng lại nói là 6 tuổi vì trường chỉ nhận trẻ 6 tuổi trở lên. Ban đầu, cô bé là một đối tượng thử nghiệm trên người được đặt tên là \"Vật thí nghiệm 007\" (被検体007?), cô đã trốn đi bởi vì ở đó cô phải học mà không được chơi. Sau đó tự đặt tên là \"Anya.\" ");
+//                builder.show();
+//            }
+//        });
+//        naruto.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                builder.setTitle("Thông Tin Về Nhân Vật Naruto");
+//                builder.setMessage("Uzumaki Naruto là nhân vật hư cấu trong bộ manga và anime Naruto của tác giả người Nhật Masashi Kishimoto. Anh là một ninja trẻ tuổi từ làng Lá — một ngôi làng giả tưởng và đóng vai trò là nhân vật chính trong bộ truyện cùng tên");
+//                builder.show();
+//            }
+//        });
+//        asta.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                builder.setTitle("Thông Tin Về Nhân Vật Asta");
+//                builder.setMessage("Được dịch từ tiếng Anh-Asta là một nhân vật hư cấu và là nhân vật chính của loạt manga Black Clover do Yūki Tabata tạo ra. Là một nông dân mồ côi bị bỏ lại tại một nhà thờ, anh khao khát trở thành Vua pháp sư tiếp theo.");
+//                builder.show();
+//            }
+//        });
+//        tanjiro.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                builder.setTitle("Thông Tin Về Nhân Vật Tanjiro");
+//                builder.setMessage("Kamado Tanjirō là một nhân vật hư cấu và là nhân vật chính trong loạt manga Thanh gươm diệt quỷ của tác giả Gotōge Koyoharu. Tanjirō trở thành kiếm sĩ để đưa em gái hóa quỷ của mình là Nezuko trở lại thành người và trả thù cho những người thân bị quỷ tàn sát");
+//                builder.show();
+//            }
+//        });
+//        levi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                builder.setTitle("Thông Tin Về Nhân Vật Levi");
+//                builder.setMessage("Được dịch từ tiếng Anh-Levi Ackerman là một nhân vật hư cấu trong bộ truyện tranh Attack on Titan của Hajime Isayama. Levi là một người lính làm việc cho Đội Hoạt động Đặc biệt của Quân đoàn Khảo sát, còn được gọi là Biệt đội Levi, một đội gồm bốn người lính tinh nhuệ với thành tích chiến đấu ấn tượng do chính tay anh tuyển chọn.");
+//                builder.show();
+//            }
+//        });
+//        eren.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                builder.setTitle("Thông Tin Về Nhân Vật Eren");
+//                builder.setMessage("Eren Yeager, hay Eren Jaeger trong bản phụ đề và lồng tiếng của anime Đại chiến Titan, là một nhân vật hư cấu và là nhân vật chính trong loạt manga Đại chiến Titan của tác giả Isayama Hajime");
+//                builder.show();
+//            }
+//        });
         return view;
     }
 
     private List<Photo> getList(){
-        listPhoto.add(new Photo(R.drawable.aot));
-        listPhoto.add(new Photo(R.drawable.fb));
         listPhoto.add(new Photo(R.drawable.blcv));
+        listPhoto.add(new Photo(R.drawable.aot));
+        listPhoto.add(new Photo(R.drawable.ssnofr));
         listPhoto.add(new Photo(R.drawable.kmy));
-        listPhoto.add(new Photo(R.drawable.naruto));
-        listPhoto.add(new Photo(R.drawable.onepice));
+        listPhoto.add(new Photo(R.drawable.jjsksen));
+        listPhoto.add(new Photo(R.drawable.iamatomic));
         return listPhoto;
     }
 
@@ -248,9 +246,9 @@ public class HomeFragment extends Fragment {
     private PhotoAdapter photoAdapter;
     private Timer timer;
     private List<Photo> listPhoto = new ArrayList<>();
-    private List<AdapterManga> listCustomData = new ArrayList<>();
+    private List<MangaInformation> listCustomData = new ArrayList<>();
     private GridView gridView;
-    public static List<AdapterManga> list_history = new ArrayList<>();
+    public static List<MangaInformation> list_history = new ArrayList<>();
     private MyDatabaseHelper db;
     private de.hdodenhof.circleimageview.CircleImageView asta;
     private de.hdodenhof.circleimageview.CircleImageView naruto;

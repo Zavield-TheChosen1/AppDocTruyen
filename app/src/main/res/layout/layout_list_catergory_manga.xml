@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,9 +12,18 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:text="thể loại"
+        android:text="Các Thể Loại"
         android:background="#F9A825"
         android:gravity="center"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#4D4B4E"
+        app:titleTextColor="@color/white"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:title="Tìm Kiếm Truyện" />
 
     <ListView
         android:id="@+id/listview_category_manga"

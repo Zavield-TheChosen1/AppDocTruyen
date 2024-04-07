@@ -70,7 +70,52 @@ public class LoginDataScoure {
         cursor.close();
         return  isExist;
     }
+    public boolean existAccountLogin(String userName) {
 
+        String selection = LoginSQLiteHelper.COLUMN_USERNAME + " = ?";
+        String[] selectionArgs = { userName.trim() };
+
+        Cursor cursor = database.query(LoginSQLiteHelper.TABLE_ACCOUNT,
+                allColumns, selection, selectionArgs, null, null, null);
+
+        boolean isExist = cursor.getCount() > 0;
+        cursor.close();
+        return  isExist;
+    }
+    public boolean changePassword(String username, String newPassword) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(LoginSQLiteHelper.COLUMN_PASSWORD, newPassword);
+        String selection = LoginSQLiteHelper.COLUMN_USERNAME + " = ?";
+        String[] selectionArgs = {username};
+        int rowsAffected = db.update(LoginSQLiteHelper.TABLE_ACCOUNT, values, selection, selectionArgs);
+        db.close();
+
+        return rowsAffected > 0;
+    }
+
+    public String getPassword(String gmail) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String selection = LoginSQLiteHelper.COLUMN_USERNAME + " = ?";
+        String[] selectionArgs = {gmail};
+
+        Cursor cursor = db.query(LoginSQLiteHelper.TABLE_ACCOUNT,
+                null,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null);
+
+        String password = null;
+
+        if (cursor != null && cursor.moveToFirst()) {
+            password = cursor.getString(cursor.getColumnIndexOrThrow(LoginSQLiteHelper.COLUMN_PASSWORD));
+            cursor.close();
+        }
+
+        return password;
+    }
     public void deleteAccount(Account account) {
         long id = account.getId();
         Log.e("SQLite", "Account entry deleted with id: " + id);

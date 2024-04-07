@@ -11,22 +11,21 @@
         android:layout_width="106dp"
         android:layout_height="96dp"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/totoro"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-         />
+        android:src="@drawable/maomao" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#E53935"
-        android:textSize="20sp"
         android:layout_gravity="center_horizontal"
-        android:text="Đăng kí tài khoản"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Đăng Kí Tài Khoản"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,13 +39,14 @@
         android:id="@+id/edtGmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/blacksolid"
         android:hint=" Nhập email"
         android:minHeight="48dp"
-        android:background="@drawable/blacksolid"
-        android:textColorHint="@android:color/black"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp" />
+        android:textColor="@color/black"
+        android:textColorHint="@android:color/black" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -60,14 +60,15 @@
         android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/blacksolid"
         android:hint=" Nhập Mật Khẩu"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:background="@drawable/blacksolid"
-        android:textColorHint="@android:color/black"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp" />
+        android:textColor="@color/black"
+        android:textColorHint="@android:color/black" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -81,14 +82,15 @@
         android:id="@+id/edtRePassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint=" Nhập Lại Mật Khẩu"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/blacksolid"
+        android:hint=" Nhập Lại Mật Khẩu"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:textColorHint="@android:color/black"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp" />
+        android:textColor="@color/black"
+        android:textColorHint="@android:color/black" />
 
     <CheckBox
         android:id="@+id/checkboxconfirm"

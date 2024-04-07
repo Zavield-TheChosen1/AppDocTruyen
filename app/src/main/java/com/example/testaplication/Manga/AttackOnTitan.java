@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.example.testaplication.Adapter.CustomArrayAdapter;
 import com.example.testaplication.R;
 
 import java.util.ArrayList;
@@ -29,7 +30,8 @@ public class AttackOnTitan extends AppCompatActivity {
         list.add("Chapter 2");
         list.add("Chapter 3");
         list.add("Chapter 4");
-        ArrayAdapter adapter = new ArrayAdapter(AttackOnTitan.this, android.R.layout.simple_expandable_list_item_1,list);
+        Intent intent = getIntent();
+        adapter = new CustomArrayAdapter(AttackOnTitan.this, android.R.layout.simple_expandable_list_item_1, list);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -37,6 +39,7 @@ public class AttackOnTitan extends AppCompatActivity {
                 switch (position){
                     case 0:
                         Intent intent = new Intent(AttackOnTitan.this, AttackOnTitanChap1.class);
+                        adapter.setReadingChapterIndex(0);
                         startActivity(intent);
                         break;
                 }
@@ -51,7 +54,18 @@ public class AttackOnTitan extends AppCompatActivity {
 
         }
     });
+        vote = findViewById(R.id.Vote);
+        vote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AttackOnTitan.this, TotalVoteManga.class);
+                intent.putExtra("Name", "Attack On Titan");
+                startActivity(intent);
+            }
+        });
     }
     private ListView listView;
     private Button sendComment;
+    private Button vote;
+    private CustomArrayAdapter adapter;
     }

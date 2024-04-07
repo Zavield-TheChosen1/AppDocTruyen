@@ -23,7 +23,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.testaplication.Adapter.AdapterManga;
+import com.example.testaplication.Adapter.MangaInformation;
 import com.example.testaplication.Adapter.ListFavoriteConstructor;
 import com.example.testaplication.Adapter.PhotoCustomListView;
 import com.example.testaplication.R;
@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentList extends Fragment {
-    private List<AdapterManga> list = new ArrayList<>();
+    private List<MangaInformation> list = new ArrayList<>();
     private ListView listViewItem;
     private  PhotoCustomListView adapter;
     private Button btnadd;
@@ -84,7 +84,7 @@ public class FragmentList extends Fragment {
 
                         }
                     });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.cancel();
@@ -94,7 +94,7 @@ public class FragmentList extends Fragment {
                 }
                 if(i==1){
                     index = i;
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             String name = list.get(index).getNameAuthors();
@@ -108,7 +108,7 @@ public class FragmentList extends Fragment {
 
                         }
                     });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.cancel();
@@ -118,7 +118,7 @@ public class FragmentList extends Fragment {
                 }
                 if(i==2){
                     index = i;
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -132,7 +132,7 @@ public class FragmentList extends Fragment {
                             }
                         }
                     });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.cancel();
@@ -140,98 +140,98 @@ public class FragmentList extends Fragment {
                     });
                     builder.show();
                 }
-                if(i==3){
-                    index = i;
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            String name = list.get(index).getNameAuthors();
-                            String des = list.get(index).getDescription();
-                            int image = list.get(index).getSource();
-                            if (!sqliteOpenHelper.exists(R.drawable.aot2,user_name)) {
-                                sqliteOpenHelper.insertData(String.valueOf(image), name, des,user_name);
-                            } else {
-                                Toast.makeText(getActivity(), "Truyện này đã tồn tại trong danh sách yêu thích", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
-                        }
-                    });
-                    builder.show();
-                }
-                if(i==4){
-                    index = i;
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            String name = list.get(index).getNameAuthors();
-                            String des = list.get(index).getDescription();
-                            int image = list.get(index).getSource();
-                            if (!sqliteOpenHelper.exists(R.drawable.aa,user_name)) {
-                                sqliteOpenHelper.insertData(String.valueOf(image), name, des,user_name);
-                            } else {
-                                Toast.makeText(getActivity(), "Truyện này đã tồn tại trong danh sách yêu thích", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
-                        }
-                    });
-                    builder.show();
-                }
-                if(i==5){
-                    index = i;
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            String name = list.get(index).getNameAuthors();
-                            String des = list.get(index).getDescription();
-                            int image = list.get(index).getSource();
-                            if (!sqliteOpenHelper.exists(R.drawable.kmy,user_name)) {
-                                sqliteOpenHelper.insertData(String.valueOf(image), name, des,user_name);
-                            } else {
-                                Toast.makeText(getActivity(), "Truyện này đã tồn tại trong danh sách yêu thích", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
-                        }
-                    });
-                    builder.show();
-                }
-                if(i==6){
-                    index = i;
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            String name = list.get(index).getNameAuthors();
-                            String des = list.get(index).getDescription();
-                            int image = list.get(index).getSource();
-                            if (!sqliteOpenHelper.exists(R.drawable.frbk,user_name)) {
-                                sqliteOpenHelper.insertData(String.valueOf(image), name, des,user_name);
-                            } else {
-                                Toast.makeText(getActivity(), "Truyện này đã tồn tại trong danh sách yêu thích", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
-                        }
-                    });
-                    builder.show();
-                }
+//                if(i==3){
+//                    index = i;
+//                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            String name = list.get(index).getNameAuthors();
+//                            String des = list.get(index).getDescription();
+//                            int image = list.get(index).getSource();
+//                            if (!sqliteOpenHelper.exists(R.drawable.aot2,user_name)) {
+//                                sqliteOpenHelper.insertData(String.valueOf(image), name, des,user_name);
+//                            } else {
+//                                Toast.makeText(getActivity(), "Truyện này đã tồn tại trong danh sách yêu thích", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+//                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            dialogInterface.cancel();
+//                        }
+//                    });
+//                    builder.show();
+//                }
+//                if(i==4){
+//                    index = i;
+//                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            String name = list.get(index).getNameAuthors();
+//                            String des = list.get(index).getDescription();
+//                            int image = list.get(index).getSource();
+//                            if (!sqliteOpenHelper.exists(R.drawable.aa,user_name)) {
+//                                sqliteOpenHelper.insertData(String.valueOf(image), name, des,user_name);
+//                            } else {
+//                                Toast.makeText(getActivity(), "Truyện này đã tồn tại trong danh sách yêu thích", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+//                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            dialogInterface.cancel();
+//                        }
+//                    });
+//                    builder.show();
+//                }
+//                if(i==5){
+//                    index = i;
+//                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            String name = list.get(index).getNameAuthors();
+//                            String des = list.get(index).getDescription();
+//                            int image = list.get(index).getSource();
+//                            if (!sqliteOpenHelper.exists(R.drawable.kmy,user_name)) {
+//                                sqliteOpenHelper.insertData(String.valueOf(image), name, des,user_name);
+//                            } else {
+//                                Toast.makeText(getActivity(), "Truyện này đã tồn tại trong danh sách yêu thích", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+//                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            dialogInterface.cancel();
+//                        }
+//                    });
+//                    builder.show();
+//                }
+//                if(i==6){
+//                    index = i;
+//                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            String name = list.get(index).getNameAuthors();
+//                            String des = list.get(index).getDescription();
+//                            int image = list.get(index).getSource();
+//                            if (!sqliteOpenHelper.exists(R.drawable.frbk,user_name)) {
+//                                sqliteOpenHelper.insertData(String.valueOf(image), name, des,user_name);
+//                            } else {
+//                                Toast.makeText(getActivity(), "Truyện này đã tồn tại trong danh sách yêu thích", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
+//                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            dialogInterface.cancel();
+//                        }
+//                    });
+//                    builder.show();
+//                }
             }
         });
         return view;

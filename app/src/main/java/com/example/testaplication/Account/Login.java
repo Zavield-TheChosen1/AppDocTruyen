@@ -1,6 +1,7 @@
 package com.example.testaplication.Account;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,9 +19,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.testaplication.AdminManga;
 import com.example.testaplication.MainActivity;
 import com.example.testaplication.R;
 import com.example.testaplication.Sqlite.LoginDataScoure;
+import com.example.testaplication.Sqlite.LoginSQLiteHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -35,6 +38,7 @@ public class Login extends AppCompatActivity {
     private TextView pass;
     private Button btnLogin;
     private Button btnSignUp;
+    private TextView btnForgot;
 
     private CheckBox rememberAccount;
     @Override
@@ -71,7 +75,7 @@ public class Login extends AppCompatActivity {
 //                AlertDialog dialog = builder.create();
 //                dialog.show();
 //            }
- //       });
+        //       });
 
         SharedPreferences preferences = getSharedPreferences("remember-account", Context.MODE_PRIVATE);
         String userName = preferences.getString("username", "");
@@ -97,13 +101,19 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        btnForgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showForgotPasswordDialog(Login.this);
+            }
+        });
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = user.getText().toString().trim();
                 String password = pass.getText().toString().trim();
                 if(email.isEmpty() || password.isEmpty()){
-                    Toast.makeText(Login.this, "Vui Long Nhap Day Du Thong Tin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     onClickLogin();
@@ -119,7 +129,27 @@ public class Login extends AppCompatActivity {
         loginDataScoure = new LoginDataScoure(this);
         loginDataScoure.open();
 
-        if(loginDataScoure.existAccount(account)) {
+        if(email.equals("admin@gmail.com") && password.equals("Admin@")) {
+            Intent intent = new Intent(Login.this, AdminManga.class);
+            SharedPreferences sharedPreferences = getSharedPreferences("MyUserName", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("email", email);
+            editor.putString("username", account.getUsername());
+            editor.putString("password", account.getPassword());
+            editor.apply();
+
+            if(rememberAccount.isChecked()) {
+                SharedPreferences preferences = getSharedPreferences("remember-account", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = preferences.edit();
+                edit.putString("username", account.getUsername());
+                edit.putString("password", account.getPassword());
+                edit.putBoolean("remember", true);
+                edit.apply();
+            }
+
+            startActivity(intent);
+        }
+        else if(loginDataScoure.existAccount(account)) {
             Toast.makeText(Login.this, "Đăng Nhập thành công", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(Login.this, MainActivity.class);
             SharedPreferences sharedPreferences = getSharedPreferences("MyUserName", Context.MODE_PRIVATE);
@@ -142,7 +172,7 @@ public class Login extends AppCompatActivity {
 //            finishActivity(RESQUET_CODE);
         }
         else {
-           Toast.makeText(Login.this, "Tên Tài Khoản Hoặc Mật Khẩu Không Chính Xác", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Login.this, "Tên Tài Khoản Hoặc Mật Khẩu Không Chính Xác", Toast.LENGTH_SHORT).show();
         }
     }
     public void mapping(){
@@ -152,11 +182,48 @@ public class Login extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnSignUp = findViewById(R.id.btnSignUpx);
         gmail = findViewById(R.id.edtGmail);
+        btnForgot = findViewById(R.id.btnForgot);
     }
 
     @Override
     protected void onDestroy() {
         loginDataScoure.close();
         super.onDestroy();
+    }
+
+    public  void showForgotPasswordDialog(Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        View view = LayoutInflater.from(context).inflate(R.layout.customforgotpass, null);
+        builder.setView(view);
+
+        EditText editTextUsername = view.findViewById(R.id.editTextUsername);
+        TextView pass = view.findViewById(R.id.pass);
+        Button submit = view.findViewById(R.id.buttonSubmit);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username = editTextUsername.getText().toString().trim();
+                if (loginDataScoure != null) {
+                    if (!loginDataScoure.existAccountLogin(username)) {
+                        Toast.makeText(context, "Không tồn tại tài khoản này", Toast.LENGTH_SHORT).show();
+                    } else {
+                        String password = loginDataScoure.getPassword(username);
+                        pass.setText("Mật khẩu của bạn là: " + password);
+                    }
+                } else {
+                    Toast.makeText(context, "Đã xảy ra lỗi khi tải dữ liệu", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

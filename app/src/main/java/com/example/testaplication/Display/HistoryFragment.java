@@ -52,7 +52,7 @@ public class HistoryFragment extends Fragment {
                 int index = location;
                 builder.setTitle("Xóa Khỏi Lịch Sử Xem");
                 builder.setCancelable(true);
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         sqliteOpenHelper.delete(list.get(index).getImage(),user_name);
@@ -61,7 +61,7 @@ public class HistoryFragment extends Fragment {
                         Toast.makeText(getContext(), "Xóa Thành Công", Toast.LENGTH_SHORT).show();
                     }
                 });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();

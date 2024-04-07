@@ -14,7 +14,7 @@
         android:background="#4D4B4E"
         app:titleTextColor="@color/white"
         app:layout_scrollFlags="scroll|enterAlways"
-        app:title="Tìm kiếm truyện" />
+        app:title="Tìm Kiếm Truyện" />
     <ListView
         android:layout_width="match_parent"
         android:id="@+id/ListViewItem"
